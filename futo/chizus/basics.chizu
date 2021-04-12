@@ -1,0 +1,15 @@
+On 'post to create endpoint' do
+  body = { summary: "test case #{Time.now.to_i}" }.to_json
+  hpost("tc/new", body)
+end
+
+On 'get main test case list' do
+  @r = hget("listCases")
+  breakpoint
+  puts r
+end
+
+On 'receive list of all test cases' do
+  # TODO
+end
+

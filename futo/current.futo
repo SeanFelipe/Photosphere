@@ -1,0 +1,21 @@
+# 5J1
+create new test case
+- post to create endpoint
+--> receive test case id
+- get test case via id
+--> receive basic info with zero history
+
+post and retrieve test result
+- post test result with unique hash
+- retrieve test execution history
+--> should have test result with unique hash
+--> test result matches
+
+# 6J1
+duplicate TCs should be prevented
+- try and create a test case with a duplicate summary
+--> errors gracefully
+
+list all test cases
+- get main test case list
+--> receive list of all test cases
