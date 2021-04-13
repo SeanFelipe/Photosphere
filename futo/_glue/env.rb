@@ -3,12 +3,13 @@ require 'byebug'; alias :breakpoint :byebug
 require 'json'
 
 HOST = 'http://localhost:3000'
-PRE = "#{HOST}/api/"
 
 def hget(ep)
-  HTTParty.get("#{PRE}#{ep}")
+  HTTParty.get("#{HOST}#{ep}")
 end
 
-def hpost(ep, body)
-  HTTParty.post("#{PRE}#{ep}", body)
+def hpost(ep, bb)
+  hh = { 'Content-Type' => 'application/json' }
+  url = "#{HOST}#{ep}"
+  HTTParty.post(url, headers: hh, body: bb.to_json)
 end

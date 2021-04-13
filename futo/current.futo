@@ -2,8 +2,16 @@
 create new test case
 - post to create endpoint
 --> receive test case id
+--> summary and description match
+
+retrieve existing test case
 - get test case via id
 --> receive basic info with zero history
+
+# 13J1 complete
+list all test cases
+- get main test case list
+--> receive list of all test cases
 
 post and retrieve test result
 - post test result with unique hash
@@ -15,7 +23,13 @@ post and retrieve test result
 duplicate TCs should be prevented
 - try and create a test case with a duplicate summary
 --> errors gracefully
+# TODO: will this become slow when number of TCs grows large ?
 
-list all test cases
-- get main test case list
---> receive list of all test cases
+# 13J1
+no summary
+- try to create a TC without a summary
+--> errors gracefully
+
+no description
+- try to create a TC without a description
+--> OK

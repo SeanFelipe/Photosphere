@@ -4,7 +4,6 @@ class TestCasesController < ApplicationController
   # GET /test_cases
   def index
     @test_cases = TestCase.all
-
     render json: @test_cases
   end
 
@@ -15,7 +14,12 @@ class TestCasesController < ApplicationController
 
   # POST /test_cases
   def create
-    @test_case = TestCase.new(test_case_params)
+    body = JSON.parse(request.raw_post)
+    summary  = body['summary']
+    description = body['description']
+
+    @test_case = TestCase.new(summary: summary, description: description)
+
 
     if @test_case.save
       render json: @test_case, status: :created, location: @test_case

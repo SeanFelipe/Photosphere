@@ -1,15 +1,21 @@
 On 'post to create endpoint' do
-  body = { summary: "test case #{Time.now.to_i}" }.to_json
-  hpost("tc/new", body)
+  @summary = "test case #{Time.now.to_i}"
+  @description = "launch all zig for great justice"
+  @body = { summary: @summary, description: @description }
+  @r = hpost("/test_cases", @body).parsed_response
+end
+
+On 'summary and description match' do
+  @r['summary'].should eq @summary
 end
 
 On 'get main test case list' do
-  @r = hget("listCases")
+  @r = hget("/test_cases")
   breakpoint
-  puts r
+  puts @r
+  @resp = @r.parsed_response
 end
 
 On 'receive list of all test cases' do
   # TODO
 end
-
