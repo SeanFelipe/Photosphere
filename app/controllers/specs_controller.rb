@@ -1,23 +1,10 @@
-class SpecController < ApplicationController
+class SpecsController < ApplicationController
   before_action :set_spec, only: [:show, :update, :destroy]
 
   # GET /specs
   def index
-    out = Hash.new
-    @specs = Spec.all
-    executions = ExecutionRecords.all
 
-    # get associated executions for each case
-    exec_map = Hash.new
-    executions.each {|ex| exec_map.store(ex.spec_id, ex)}
-
-    breakpoint
-    @specs.each do |ss|
-      new = Hash.new
-      new.store(:specs, ss)
-      #history = Array.new
-    end
-
+    out = SpecsHelper.match_specs_with_executions
     render json: out
   end
 
