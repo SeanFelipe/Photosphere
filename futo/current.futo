@@ -1,4 +1,9 @@
 # 5J1
+list all test cases
+- get main test case list
+--> receive list of all test cases
+--> first test case summary includes "Seed"
+
 create new test case
 - post to create endpoint
 --> receive test case id
@@ -8,25 +13,18 @@ retrieve existing test case
 - get test case via id
 --> receive basic info with zero history
 
-# 13J1 complete
-list all test cases
-- get main test case list
---> receive list of all test cases
-
 post and retrieve test result
 - post test result with unique hash
 - retrieve test execution history
 --> should have test result with unique hash
 --> test result matches
 
-# 6J1
-duplicate TCs should be prevented
+duplicate TCs should be prevented # 6J1
 - try and create a test case with a duplicate summary
 --> errors gracefully
 # TODO: will this become slow when number of TCs grows large ?
 
-# 13J1
-no summary
+no summary # 13J1
 - try to create a TC without a summary
 --> errors gracefully
 

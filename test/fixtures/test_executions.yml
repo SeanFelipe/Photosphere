@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  execution_time: 2021-04-13 08:54:37
+  result: MyString
+  details: MyText
+  test_case: one
+
+two:
+  execution_time: 2021-04-13 08:54:37
+  result: MyString
+  details: MyText
+  test_case: two

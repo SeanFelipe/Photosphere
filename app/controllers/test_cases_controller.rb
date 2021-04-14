@@ -3,8 +3,23 @@ class TestCasesController < ApplicationController
 
   # GET /test_cases
   def index
-    @test_cases = TestCase.all
-    render json: @test_cases
+    out = Hash.new
+    @cases = TestCase.all
+    executions = TestExecution.all
+
+    # get associated executions for each case
+    exec_map = Hash.new
+    executions.each {|ex| exec_map.store(ex.test_case_id, ex)}
+
+    breakpoint
+    @test_cases.each do |tc|
+      new = Hash.new
+      new.store(:test_case, tc)
+      #history = Array.new
+    end
+
+    #render json: @test_cases
+    render json: out
   end
 
   # GET /test_cases/1

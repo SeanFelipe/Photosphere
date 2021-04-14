@@ -1,3 +1,3 @@
 #!/bin/bash -l
 title 'futo run'
-futo current:2
+futo current:1
