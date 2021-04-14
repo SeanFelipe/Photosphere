@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_13_155437) do
+ActiveRecord::Schema.define(version: 2021_04_13_153109) do
 
-  create_table "test_cases", force: :cascade do |t|
+  create_table "run_records", force: :cascade do |t|
+    t.datetime "exec_time"
+    t.string "result"
+    t.text "details"
+    t.integer "spec_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spec_id"], name: "index_run_records_on_spec_id"
+  end
+
+  create_table "specs", force: :cascade do |t|
     t.string "summary"
     t.string "description"
     t.string "automationStatus"
@@ -20,15 +30,5 @@ ActiveRecord::Schema.define(version: 2021_04_13_155437) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "test_executions", force: :cascade do |t|
-    t.datetime "execution_time"
-    t.string "result"
-    t.text "details"
-    t.integer "test_case_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_case_id"], name: "index_test_executions_on_test_case_id"
-  end
-
-  add_foreign_key "test_executions", "test_cases"
+  add_foreign_key "run_records", "specs"
 end

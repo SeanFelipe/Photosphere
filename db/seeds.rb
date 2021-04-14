@@ -6,19 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-tc1 = TestCase.create({
+spec1 = Spec.create({
   summary: "Seed Test Case #{Time.now.to_i}",
   description: "Description #{Time.now.to_i}"
 })
 
-TestExecution.create({
-  execution_time: Time.now,
+RunRecord.create({
+  exec_time: Time.now,
   result: 'pass',
-  test_case_id: tc1.id
+  spec_id: spec1.id
 })
 
 # tc with no executions
-TestCase.create({
+Spec.create({
   summary: "Seed Test Case #{Time.now.to_i}",
   description: "Description #{Time.now.to_i}"
 })
