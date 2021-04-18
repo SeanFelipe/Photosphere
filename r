@@ -1,3 +1,3 @@
 #!/bin/bash
 title 'run-rails'
-rails s
+rails s -p 9292
