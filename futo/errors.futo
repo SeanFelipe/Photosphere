@@ -1,0 +1,2 @@
+- sending invalid json should error gracefully
+

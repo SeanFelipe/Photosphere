@@ -1,0 +1,15 @@
+On 'make sure we have at least one run record available' do
+  @r = hget("/specs").parsed_response
+  @r.length.should be > 1
+end
+
+On 'add a run record with unique identifier to existing spec' do
+  @spec_id = @r.first['spec']['id']
+  @rr = { exec_time: Time.now, result: "pass", details: "many many details #{Time.now.to_i}", spec_id: @spec_id }
+  @q = hpost('/run_records', body: @rr)
+  breakpoint
+end
+
+On 'run record appears in spec history' do
+  # TODO
+end

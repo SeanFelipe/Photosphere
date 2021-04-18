@@ -10,8 +10,9 @@ create new test case
 --> summary and description match
 
 retrieve existing test case
-- get test case via id
---> receive basic info with zero history
+- get first test case via id
+--> receive basic info
+--> http status 200
 
 post and retrieve test result
 - post test result with unique hash

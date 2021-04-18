@@ -1,0 +1,51 @@
+On 'create a new test case for "Google Basic Test"' do
+  @summary = "Google spec #{Time.now.to_i}"
+  @description = "GET google.com and assert something simple"
+  @body = { summary: @summary, description: @description }
+  @r = hpost("/specs", @body).parsed_response
+end
+
+On 'receive a new spec, store spec id' do
+  @r['summary'].should eq @summary
+  @spec_id = @r['id']
+end
+
+On 'open google' do
+  @g = HTTParty.get('http://google.com').parsed_response
+end
+
+On 'assert something simple' do
+  @passed = true
+  begin
+    @g.should include 'Google'
+    @g.should_not include 'Bing'
+  rescue
+    @passed = false
+  end
+end
+
+On 'post result to Photosphere with unique tag' do
+
+  # TODO
+end
+
+On 'responds with new run record including tag' do
+  # TODO
+end
+
+On 'check spec list for test case' do
+  # TODO
+end
+
+On 'spec includes recent run' do
+  # TODO
+end
+
+On 'add an execution with unique identifier' do
+  # TODO
+end
+
+On 'execution appears in spec history' do
+  # TODO
+end
+

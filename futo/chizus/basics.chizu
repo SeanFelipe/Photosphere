@@ -2,7 +2,7 @@ On 'post to create endpoint' do
   @summary = "test case #{Time.now.to_i}"
   @description = "launch all zig for great justice"
   @body = { summary: @summary, description: @description }
-  @r = hpost("/test_cases", @body).parsed_response
+  @r = hpost("/specs", @body).parsed_response
 end
 
 On 'summary and description match' do
@@ -10,11 +10,22 @@ On 'summary and description match' do
 end
 
 On 'get main test case list' do
-  @r = hget("/test_cases")
-  puts @r
-  @resp = @r.parsed_response
+  @r = hget("/specs").parsed_response
 end
 
 On 'receive list of all test cases' do
+  # TODO
+end
+
+On 'first test case summary includes "Seed"' do
+  @r.first['spec']['summary'].should include 'Seed'
+end
+
+On 'get first test case via id' do
+  @r = hget("/specs/1").parsed_response
+  breakpoint
+end
+
+On 'receive basic info with zero history' do
   # TODO
 end

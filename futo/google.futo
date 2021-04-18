@@ -1,0 +1,10 @@
+# google tests
+basic google get and post result
+- create a new test case for "Google Basic Test"
+--> receive a new spec, store spec id
+- open google
+- assert something simple
+- post result to Photosphere with unique tag
+--> responds with new run record including tag
+- check spec list for test case
+--> spec includes recent run

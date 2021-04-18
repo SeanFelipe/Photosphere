@@ -1,0 +1,12 @@
+add an execution
+- make sure we have at least one run record available
+- add a run record with unique identifier to existing spec
+--> run record appears in spec history
+
+single-run rr
+- retrieve spec with one run record
+--> rr's is an array len 1
+
+multiple rr
+- retrieve spec with mx run records
+--> rr's is an array > 1
