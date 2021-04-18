@@ -15,8 +15,7 @@ class RunRecordsController < ApplicationController
 
   # POST /run_records
   def create
-    ps = request.params['body']
-    breakpoint
+    ps = request.params['run_record']
     @run_record = RunRecord.new(ps)
 
     if @run_record.save
