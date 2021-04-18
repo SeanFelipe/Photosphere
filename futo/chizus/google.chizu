@@ -15,37 +15,30 @@ On 'open google' do
 end
 
 On 'assert something simple' do
-  @passed = true
+  @result = 'pass'
   begin
     @g.should include 'Google'
     @g.should_not include 'Bing'
   rescue
-    @passed = false
+    @result = 'fail'
   end
 end
 
 On 'post result to Photosphere with unique tag' do
-
-  # TODO
+  @unique_tag = Time.now.to_i.to_s
+  @body = { spec_id: @spec_id, exec_time: Time.now, result: @result, details: "Google basic assertions at #{@unique_tag}" }
+  @r = hpost('run_records', @body).parsed_response
 end
 
 On 'responds with new run record including tag' do
-  # TODO
+  # TODO more assertions here ?
+  @r.to_s.should include @unique_tag
 end
 
 On 'check spec list for test case' do
-  # TODO
+  @r = hget("specs/#{@spec_id}").parsed_response
 end
 
 On 'spec includes recent run' do
-  # TODO
+  @r['run_records'].to_s.should include @unique_tag
 end
-
-On 'add an execution with unique identifier' do
-  # TODO
-end
-
-On 'execution appears in spec history' do
-  # TODO
-end
-

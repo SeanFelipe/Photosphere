@@ -1,2 +1,7 @@
 - sending invalid json should error gracefully
 
+- post to wrong endpoint (spec to run_record, rr to spec)
+
+# TODO: 17J1 possible to pass wrong parameters and app doesn't reject
+# eg. can post rr data to /specs and record is created
+
