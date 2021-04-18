@@ -10,7 +10,14 @@ class SpecsController < ApplicationController
 
   # GET /specs/1
   def show
-    render json: @specs
+    iid = request.params['id'].to_i
+    spec = Spec.find(iid)
+    runs = RunRecord.where(spec_id: iid)
+    out = {
+      spec: spec,
+      run_records: runs,
+    }
+    render json: out
   end
 
   # POST /specs

@@ -8,14 +8,16 @@ class RunRecordsController < ApplicationController
     render json: @run_record
   end
 
-  # GET /execution_records/1
+  # GET /run_records/1
   def show
     render json: @run_record
   end
 
   # POST /run_records
   def create
-    @run_record = TestExecution.new(run_record_params)
+    ps = request.params['body']
+    breakpoint
+    @run_record = RunRecord.new(ps)
 
     if @run_record.save
       render json: @run_record, status: :created, location: @run_record
@@ -46,6 +48,8 @@ class RunRecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def run_record_params
-      params.require(:run_record).permit(:execution_time, :result, :details, :test_case_id)
+      # TODO: 17J1 is this the right way to do this ? these are uri params not body yes ?
+      params.fetch(:run_record, {})
+      #params.require(:run_record).permit(:execution_time, :result, :details, :spec_id)
     end
 end

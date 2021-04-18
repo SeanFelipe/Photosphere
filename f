@@ -1,3 +1,4 @@
 #!/bin/bash -l
 title 'futo run'
-futo current:1
+#futo google
+futo run_records

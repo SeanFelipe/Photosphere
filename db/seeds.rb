@@ -17,6 +17,12 @@ RunRecord.create({
   spec_id: spec1.id
 })
 
+RunRecord.create({
+  exec_time: Time.now,
+  result: 'fail',
+  spec_id: spec1.id
+})
+
 # tc with no executions
 Spec.create({
   summary: "Seed Test Case #{Time.now.to_i}",

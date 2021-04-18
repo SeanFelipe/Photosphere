@@ -1,7 +1,7 @@
 PATH
   remote: ../futo-spec
   specs:
-    futo-spec (0.3.12)
+    futo-spec (0.3.13)
       paint (~> 2.2)
       rspec (~> 3.9)
       rspec-expectations (~> 3.9)
