@@ -38,4 +38,5 @@ group :development do
   gem 'cucumber'
   gem 'capybara'
   gem 'httparty'
+  gem 'selenium-webdriver'
 end

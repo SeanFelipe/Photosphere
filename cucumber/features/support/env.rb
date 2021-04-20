@@ -1,5 +1,6 @@
 require 'httparty'
 require 'byebug'; alias :breakpoint :byebug
+require 'selenium-webdriver'
 
 HOST = 'http://localhost:9292'
 
