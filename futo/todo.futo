@@ -1,0 +1,3 @@
+- application.rb has a lot of requires which are probably extraneous
+- may be from full Rails and not API server only due to starting the project as full Rails
+# TODO: 18J1 make sure application.rb requires are only what we need; compare against Rails 6.1 api only
