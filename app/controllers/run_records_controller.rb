@@ -15,8 +15,10 @@ class RunRecordsController < ApplicationController
 
   # POST /run_records
   def create
-    ps = request.params['run_record']
-    @run_record = RunRecord.new(ps)
+    sid = request.params['spec_id']
+    slt = request.params['result']
+    dts = request.params['details']
+    @run_record = RunRecord.new(spec_id: sid, result: slt, details: dts)
 
     if @run_record.save
       render json: @run_record, status: :created, location: @run_record
