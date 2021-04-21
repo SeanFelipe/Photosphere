@@ -1,9 +1,16 @@
+require 'rspec'
 require 'httparty'
 require 'byebug'; alias :breakpoint :byebug
 alias :bp :byebug # agb ignore
 require 'selenium-webdriver'
 
 class SpecNotFoundError < RuntimeError; end
+
+RSpec.configure do |config|
+  config.expect_with :rspec do |expectations|
+    expectations.syntax = :should
+  end
+end
 
 HOST = 'http://localhost:9292'
 
